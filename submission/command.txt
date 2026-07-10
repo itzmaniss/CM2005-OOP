@@ -1,0 +1,23 @@
+# Run from the repo root: /Users/itzmaniss/coding/SIM/merklerex
+# Requires: brew install enscript ghostscript
+
+# AI GENERATED SCRIPT to Create submission directory and source code PDF
+mkdir -p submission && cd src && {
+  first=1
+  for f in *.h *.cpp; do
+    if [ $first -eq 0 ]; then printf '\f'; fi
+    first=0
+    width=60
+    inner=$((width - 4))
+    pad=$(( (inner - ${#f}) / 2 ))
+    left=$(printf '%*s' $pad '')
+    right_pad=$(( inner - pad - ${#f} ))
+    right=$(printf '%*s' $right_pad '')
+    bar=$(printf '=%.0s' $(seq 1 $width))
+    echo "// $bar"
+    echo "// ==${left}${f}${right}=="
+    echo "// $bar"
+    echo
+    cat "$f"
+  done
+} | enscript -B -f Courier10 -o - 2>/dev/null | ps2pdf - ../submission/source_code.pdf && cd ..
