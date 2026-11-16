@@ -9,6 +9,8 @@
  * chart in the terminal. Green (█) = close >= open, red (░) = close < open.
  * Wicks drawn as │. Stateless utility, hence static.
  */
+//my code starts here
+
 class CandlestickPlotter {
 public:
     /** Draws the chart. Shows at most maxCandles (the most recent ones). */
@@ -26,3 +28,4 @@ private:
     /** Make price look nice, no matter if it big or small. */
     static std::string formatPrice(double v);
 };
+//my code ends here

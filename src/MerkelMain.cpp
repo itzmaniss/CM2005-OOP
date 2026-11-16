@@ -106,6 +106,7 @@ void MerkelMain::processMainOption(int option)
     else if (option == 9) printMainHelp();
     else if (option == 10) { std::cout << "Logging out " << currentUser << std::endl; currentUser = ""; }
 }
+//my code starts here
 
 // ======================= help =======================
 
@@ -216,6 +217,7 @@ void MerkelMain::doSimulation()
     std::string timestamp = simulator.run(currentUser);
     currentTime = timestamp;   // advance so 'next timeframe' lands on new orders
 }
+//my code ends here
 
 void MerkelMain::gotoNextTimeframe()
 {
@@ -230,8 +232,7 @@ void MerkelMain::gotoNextTimeframe()
             std::cout << "Match: " << e.price << " amount " << e.amount << std::endl;
             if (e.username == currentUser)
             {
-                std::string type = (e.orderType == OrderBookType::asksale) ? "ask" : "bid";
-                txLog.log({ e.timestamp, e.product, type, e.price, e.amount, e.username });
+                txLog.log({ e.timestamp, e.product, OrderBookEntry::orderTypeToString(e.orderType), e.price, e.amount, e.username });
             }
         }
     }

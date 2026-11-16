@@ -29,3 +29,15 @@ OrderBookType OrderBookEntry::stringToOrderBookType(std::string s)
   }
   return OrderBookType::unknown;
 }
+
+std::string OrderBookEntry::orderTypeToString(OrderBookType type)
+{
+  switch (type)
+  {
+    case OrderBookType::ask: return "ask";
+    case OrderBookType::bid: return "bid";
+    case OrderBookType::asksale: return "asksale";
+    case OrderBookType::bidsale: return "bidsale";
+    default: return "unknown";
+  }
+}

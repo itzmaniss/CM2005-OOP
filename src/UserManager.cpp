@@ -1,3 +1,5 @@
+//my code starts here
+
 #include "UserManager.h"
 #include "UserWallet.h"
 #include <iostream>
@@ -10,6 +12,7 @@
 #include <fstream>
 
 #include "CSVReader.h"
+#include <filesystem>
 
 
 UserManager::UserManager(UserWallet& wallet) : wallet(wallet) {
@@ -47,7 +50,7 @@ bool UserManager::registerUserProgrammatic(const std::string& fullName,
     }
 
 
-    if (exists(const_cast<std::string&>(email), const_cast<std::string&>(fullName))) {
+    if (exists(email, fullName)) {
         std::cout << "An account with this name and email already exists." << std::endl;
         return false;
     }
@@ -177,7 +180,7 @@ std::vector<UserRecord> UserManager::loadAll() {
         std::cerr << "UserManager::loadAll bad file: " << this->users_file << std::endl;
     }
 
-    std::cout << "UserManager::loadAll read " << this->users.size() << "entries"  << std::endl;
+    std::cout << "UserManager::loadAll read " << this->users.size() << " entries"  << std::endl;
     return this->users;
 };
 
@@ -222,7 +225,7 @@ void UserManager::rewriteFile() {
             << r.passwordHash << "\n";
     }
 }
-bool  UserManager::exists(std::string& email, std::string& fullName) {
+bool  UserManager::exists(const std::string& email, const std::string& fullName) {
     for (const UserRecord& r : users) {   // this->users
         if (r.email == email && r.fullName == fullName) { return true; }
     }
@@ -249,8 +252,11 @@ UserRecord* UserManager::findByUsername(const std::string& username) {
 
 
 void UserManager::ensureFilesExist() {
+    std::filesystem::create_directories("data");
     std::ifstream check{users_file};
     if (!check.is_open()) {
         std::ofstream create{users_file};
     }
 }
+
+//my code ends here

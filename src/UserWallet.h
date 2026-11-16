@@ -1,3 +1,5 @@
+//my code starts here
+
 #pragma once
 #include <string>
 #include <map>
@@ -36,3 +38,4 @@ private:
     /** Print message and get number from user. */
     static double readAmount(const std::string& prompt);
 };
+//my code ends here

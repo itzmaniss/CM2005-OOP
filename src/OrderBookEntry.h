@@ -19,6 +19,8 @@ class OrderBookEntry
 
         /** Convert string to order type like bid or ask. */
         static OrderBookType stringToOrderBookType(std::string s);
+        /** Convert order type to string. */
+        static std::string orderTypeToString(OrderBookType type);
 
         /** Compare two orders by time. */
         static bool compareByTimestamp(OrderBookEntry& e1, OrderBookEntry& e2)

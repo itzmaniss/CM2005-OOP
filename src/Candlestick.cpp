@@ -1,3 +1,4 @@
+//my code starts here
 
 #include "Candlestick.h"
 
@@ -44,3 +45,4 @@ std::string Candlestick::getTime() const {
 OrderBookType Candlestick::getOrderType() const {
     return orderType;
 }
+//my code ends here

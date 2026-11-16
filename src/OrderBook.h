@@ -35,7 +35,6 @@ class OrderBook
         /** Get the whole list of orders. */
         const std::vector<OrderBookEntry>& getOrderBook() const;
 
-        //my code ends here
 
     private:
         std::vector<OrderBookEntry> orders;

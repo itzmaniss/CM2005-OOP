@@ -29,6 +29,7 @@ namespace {
     const std::string RED   = "\033[31m";
     const std::string RESET = "\033[0m";
 }
+//my code starts here
 
 /**
  * Work out which row the price belongs to.
@@ -94,7 +95,7 @@ void CandlestickPlotter::plot(const std::vector<Candlestick>& candles,
     }
     if (hi == lo) hi = lo + 1.0;
 
-    // build marker grid: row 0 = botto
+    // build marker grid: row 0 = bottom
     const int width = n * COL_WIDTH;
     std::vector<std::string> grid(height, std::string(width, ' '));
 
@@ -154,3 +155,4 @@ void CandlestickPlotter::plot(const std::vector<Candlestick>& candles,
     }
     std::cout << std::endl;
 }
+//my code ends here

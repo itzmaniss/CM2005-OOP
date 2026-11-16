@@ -146,16 +146,8 @@ std::vector<OrderBookEntry> OrderBook::matchAsksToBids(std::string product, std:
                 product, 
                 OrderBookType::asksale};
 
-                if (bid.username == "simuser")
-                {
-                    sale.username = "simuser";
-                    sale.orderType = OrderBookType::bidsale;
-                }
-                if (ask.username == "simuser")
-                {
-                    sale.username = "simuser";
-                    sale.orderType =  OrderBookType::asksale;
-                }
+                if (bid.username != "dataset") { sale.username = bid.username; sale.orderType = OrderBookType::bidsale; }
+                if (ask.username != "dataset") { sale.username = ask.username; sale.orderType = OrderBookType::asksale; }
             
     //             # now work out how much was sold and 
     //             # create new bids and asks covering 

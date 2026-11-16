@@ -1,3 +1,4 @@
+//my code starts here
 
 #include "CandlestickCalculator.h"
 #include "Candlestick.h"
@@ -64,4 +65,4 @@ std::vector<Candlestick> CandlestickCalculator::calculate(const std::vector<Orde
 
     return candles;
 }
- 
+//my code ends here

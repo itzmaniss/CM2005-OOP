@@ -1,5 +1,8 @@
+//my code starts here
+
 #include "UserWallet.h"
 #include "CSVReader.h"
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <iomanip>
@@ -11,6 +14,7 @@ UserWallet::UserWallet(const std::string& filename) : filename(filename) {
 
 
 void UserWallet::ensureFilesExist() {
+    std::filesystem::create_directories("data");
     std::ifstream check{filename};
     if (!check.is_open()) {
         std::ofstream create{filename};
@@ -106,3 +110,4 @@ double UserWallet::readAmount(const std::string& prompt) {
         }
     }
 }
+//my code ends here

@@ -1,3 +1,5 @@
+//my code starts here
+
 #pragma once
 #include "UserWallet.h"
 #include <vector>
@@ -36,7 +38,7 @@ private:
     /** Save everything back to file. */
     void rewriteFile();
     /** Check if email or name already used. */
-    bool exists(std::string& email, std::string& fullName);
+    bool exists(const std::string& email, const std::string& fullName);
     /** Print message and wait for user to type. */
     std::string readLine(const std::string& prompt);
     /** Find user by their username. */
@@ -49,3 +51,4 @@ private:
     UserWallet& wallet;
     static constexpr double SIGNUP_BONUS = 1000.0;
 };
+//my code ends here

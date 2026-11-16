@@ -1,3 +1,5 @@
+//my code starts here
+
 #pragma once
 #include <string>
 #include <vector>
@@ -11,7 +13,7 @@ public:
     explicit TransactionLog(const std::string& filename);
 
     /** Save one trade and update wallet. */
-    void log(const Trade& t);                          // append + adjust wallet
+    void log(const Trade& t);
     /** Show last few trades for this user. */
     void printRecent(std::string username, int n = 5);
     /** Show some statistics like total volume. */
@@ -24,3 +26,4 @@ private:
     std::vector<Trade> loadFor(std::string username);
     std::string filename;
 };
+//my code ends here
